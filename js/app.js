@@ -10,7 +10,7 @@ var Enemy = function(a,b) {
     this.y = b;
     this.width = 100;
     this.height = 67;
-    // e:this randomizes the speed.
+    // Property to randomize speed.
     this.speed = (Math.random()*2)+2;
 };
 
@@ -20,13 +20,14 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.checkCollisions();
     this.enemy = (this.x+= this.speed)*dt;
+    // Invokes the collision checker.
+    this.checkCollisions();
 
-      // e: This function makes the bugs loop, starting off screen
+      // This function makes the bugs loop, starting off screen
       if (this.x > 505){
         this.x = -10;
-        // e: This function randomizes bugs on y-axis, but makes
+        // This function randomizes bugs on y-axis, but makes
         // sure they stay with only 4 quardinates or squares
         this.y = this.y + 83;
           if (this.y > 400){
@@ -35,18 +36,22 @@ Enemy.prototype.update = function(dt) {
       }
 };
 
+// FOR TESTING: Draw box function, to test collisions and sprite area.
+/*
 function drawBox(x, y, width, height, color) {
     ctx.beginPath();
     ctx.rect(x, y, width, height);
     ctx.lineWidth = 2;
     ctx.strokeStyle = color;
     ctx.stroke();
-}
+}*/
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    drawBox(this.x, this.y + 70, 100, 67, "yellow")
+    
+    /* FOR TESTING: Draw box function, to test collisions and sprite area.
+     drawBox(this.x, this.y + 70, 100, 67, "yellow") */
 };
 
 // Now write your own player class
@@ -64,7 +69,6 @@ var Player = function (a,b,c,d) {
 
 Player.prototype.update = function(dt) {
     this.player = (this.x)*dt;
-    //this.checkCollisions();
 };
 
 Player.prototype.render = function() {
@@ -78,7 +82,8 @@ Player.prototype.render = function() {
     ctx.fillText('Score: ' + this.score, 5, 70);
     ctx.fillText('Lives: ' + this.lives, 5, 90);
 
-    drawBox(this.x, this.y +70, 100, 67, "yellow");
+    /* FOR TESTING: Draw box function, to test collisions and sprite area.
+     drawBox(this.x, this.y + 70, 100, 67, "yellow") */
 
 };
 
@@ -95,7 +100,6 @@ Player.prototype.handleInput = function(move) {
     case 'up':
       if (this.y <= 0){
         this.goal();
-        // add points!
       }
       else {
         this.y -= 83;
@@ -119,36 +123,26 @@ Player.prototype.handleInput = function(move) {
       break;
   };
 };
+
+// collision method. +70 adjusts the detection area to only include visible sprite area.
+
 Enemy.prototype.checkCollisions = function() {
-        //player with enemy
         allEnemies.forEach(function(enemy) {
             if (player.x < (enemy.x + enemy.width) && (player.x + player.width) > enemy.x && (player.y + 70) < ((enemy.y +70) + enemy.height) && ((player.y + 70) + player.height) > (enemy.y +70)) {
                 player.collision();
             }
         });
       };
-// collision method.
-/*
-Player.prototype.checkCollisions = function (){
-  for (var i = 0; i < allEnemies.length; i++){
-    if (this.x < allEnemies[i].x + allEnemies[i].width &&
-        this.x + this.width > allEnemies[i].x &&
-        this.y < allEnemies[i].y + allEnemies[i].height &&
-        this.y + this.height > allEnemies[i].y){
-          player.collision();
-    }
-    else
-      return false;
-  }
-};
-*/
-// Reset and score method.
+
+
+// Win method.
 Player.prototype.goal = function () {
   this.x = 202;
   this.y = 415;
   this.score += 1;
 };
 
+// Lose/collision Method.
 Player.prototype.collision = function () {
   if (this.lives >1) {
     this.lives -= 1;
