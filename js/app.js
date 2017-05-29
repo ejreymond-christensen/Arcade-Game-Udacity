@@ -49,7 +49,7 @@ function drawBox(x, y, width, height, color) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    
+
     /* FOR TESTING: Draw box function, to test collisions and sprite area.
      drawBox(this.x, this.y + 70, 100, 67, "yellow") */
 };
@@ -84,7 +84,6 @@ Player.prototype.render = function() {
 
     /* FOR TESTING: Draw box function, to test collisions and sprite area.
      drawBox(this.x, this.y + 70, 100, 67, "yellow") */
-
 };
 
 Player.prototype.handleInput = function(move) {
@@ -151,10 +150,16 @@ Player.prototype.collision = function () {
   }
   else {
     this.lives = 0;
-    alert("GAME OVER");
-    document.location.init();
+    gameOver();
   }
 
+};
+
+function gameOver(){
+  ctx.fillStyle = "Red";
+  ctx.font = "75px";
+  ctx.fillText("Game Over", 100, 40);
+  player.score = 0;
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
