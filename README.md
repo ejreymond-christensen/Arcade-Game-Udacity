@@ -1,6 +1,22 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+This is a basic frogger type game. Cross the screen and avoid enemy bugs.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+##How to run the game.
+1. Copy my [github repo](https://github.com/ejreymond-christensen/Arcade-Game-Udacity) by selecting the *clone or download* button.
+2. open the folder `Arcade-Game-Udacity`, then double click on `index.html` to open the game in your browser.
+
+
+##How to play the game.
+Now that the game has been loaded in the browser, you can start playing! The game is simple. Use the arrow keys to move the player around the gameboard.
+-Left arrow = left.
+-Right arrow = right.
+-Up arrow = up.
+-down arrow = down.
+
+The **object** is to avoid being hit by the enemy bugs and cross to over to the safety of the river. Bugs hate water!
+
+You have 5 lives. If one of those nasty critters hits you, you will start back over and lose a life. If you make it to the other side, you start back over and get a point! See how many points you can get before losing all lives.
+
+Once you run out, you can **restart** the game by **refreshing** the browser.
