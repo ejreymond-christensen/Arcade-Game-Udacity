@@ -1,4 +1,4 @@
-frontend-nanodegree-arcade-game
+jsFrogger-Game
 ===============================
 
 This is a basic frogger type game. Cross the screen and avoid enemy bugs.
