@@ -5,7 +5,7 @@ This is a basic frogger type game. Cross the screen and avoid enemy bugs.
 
 ## How to run the game.
 1. Copy my [github repo](https://github.com/ejreymond-christensen/Arcade-Game-Udacity) by selecting the *clone or download* button.
-2. open the folder `Arcade-Game-Udacity`, then double click on `index.html` to open the game in your browser.
+2. open the folder `jsFrogger-Game`, then double click on `index.html` to open the game in your browser.
 
 
 ## How to play the game.
