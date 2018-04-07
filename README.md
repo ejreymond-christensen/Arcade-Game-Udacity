@@ -17,6 +17,6 @@ Now that the game has been loaded in the browser, you can start playing! The gam
 
 The **object** is to avoid being hit by the enemy bugs and cross to over to the safety of the river. Bugs hate water!
 
-You have 5 lives. If one of those nasty critters hits you, you will start back over and lose a life. If you make it to the other side, you start back over and get a point! See how many points you can get before losing all lives.
+You have 5 lives. If one of those busy beetles hits you, you will start back over and lose a life. If you make it to the other side, you start back over and get a point! See how many points you can get before losing all lives.
 
 Once you run out, you can **restart** the game by **refreshing** the browser.
